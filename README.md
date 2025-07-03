@@ -6,6 +6,7 @@ PriceActionUtils is a simple NinjaTrader 8 indicator that adds a few nice featur
 3. Remaining tick count and Previous bar's range
 5. Market hour lines
 6. Automatic 2nd chart tick offset (for second chart setup)
+7. Increase chart refresh rate
 
 
 ### 21 EMA
@@ -65,3 +66,9 @@ Here's what that looks like. Notice that the two charts have slightly differnt b
 To set this up you just need to double click on the data series and select the "2nd Chart Tick" bar type. This bar type will also work fine with the built in tick counter.
 
 ![2nd Chart Setup](./docs/images/2nd_chart_2.png)
+
+### Increase chart refresh rate
+
+The default refresh rate in NinjaTrader can be a little slow so the indicator allows you to increase that which gives a much more fluid experience. You can configure the maximum refresh rate in the indicator settings.
+
+![Max refresh rate settings](./docs/images/max_refresh_rate_1.png)
