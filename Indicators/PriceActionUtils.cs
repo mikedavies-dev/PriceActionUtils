@@ -24,7 +24,7 @@ using NinjaTrader.NinjaScript.DrawingTools;
 #endregion
 
 //This namespace holds Indicators in this folder and is required. Do not change it. 
-namespace NinjaTrader.NinjaScript.Indicators.mwwad
+namespace NinjaTrader.NinjaScript.Indicators
 {
 	public class PriceActionUtils : Indicator
 	{
@@ -37,7 +37,7 @@ namespace NinjaTrader.NinjaScript.Indicators.mwwad
 		private DateTime endTime;
 		private bool hasDrawnMeasure = false;
 
-		private string version = "1.0.0";
+		private string version = "1.0.1";
 		
 		// Tick refresh functionality
 		private long oldTimeFrame;
@@ -631,19 +631,19 @@ namespace NinjaTrader.NinjaScript.Indicators
 {
 	public partial class Indicator : NinjaTrader.Gui.NinjaScript.IndicatorRenderBase
 	{
-		private mwwad.PriceActionUtils[] cachePriceActionUtils;
-		public mwwad.PriceActionUtils PriceActionUtils()
+		private PriceActionUtils[] cachePriceActionUtils;
+		public PriceActionUtils PriceActionUtils()
 		{
 			return PriceActionUtils(Input);
 		}
 
-		public mwwad.PriceActionUtils PriceActionUtils(ISeries<double> input)
+		public PriceActionUtils PriceActionUtils(ISeries<double> input)
 		{
 			if (cachePriceActionUtils != null)
 				for (int idx = 0; idx < cachePriceActionUtils.Length; idx++)
 					if (cachePriceActionUtils[idx] != null &&  cachePriceActionUtils[idx].EqualsInput(input))
 						return cachePriceActionUtils[idx];
-			return CacheIndicator<mwwad.PriceActionUtils>(new mwwad.PriceActionUtils(), input, ref cachePriceActionUtils);
+			return CacheIndicator<PriceActionUtils>(new PriceActionUtils(), input, ref cachePriceActionUtils);
 		}
 	}
 }
@@ -652,12 +652,12 @@ namespace NinjaTrader.NinjaScript.MarketAnalyzerColumns
 {
 	public partial class MarketAnalyzerColumn : MarketAnalyzerColumnBase
 	{
-		public Indicators.mwwad.PriceActionUtils PriceActionUtils()
+		public Indicators.PriceActionUtils PriceActionUtils()
 		{
 			return indicator.PriceActionUtils(Input);
 		}
 
-		public Indicators.mwwad.PriceActionUtils PriceActionUtils(ISeries<double> input )
+		public Indicators.PriceActionUtils PriceActionUtils(ISeries<double> input )
 		{
 			return indicator.PriceActionUtils(input);
 		}
@@ -668,12 +668,12 @@ namespace NinjaTrader.NinjaScript.Strategies
 {
 	public partial class Strategy : NinjaTrader.Gui.NinjaScript.StrategyRenderBase
 	{
-		public Indicators.mwwad.PriceActionUtils PriceActionUtils()
+		public Indicators.PriceActionUtils PriceActionUtils()
 		{
 			return indicator.PriceActionUtils(Input);
 		}
 
-		public Indicators.mwwad.PriceActionUtils PriceActionUtils(ISeries<double> input )
+		public Indicators.PriceActionUtils PriceActionUtils(ISeries<double> input )
 		{
 			return indicator.PriceActionUtils(input);
 		}
