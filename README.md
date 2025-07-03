@@ -1,74 +1,141 @@
-# Price Action Utils
-PriceActionUtils is a simple NinjaTrader 8 indicator that adds a few nice features to your chart, it was created to conbine the functionallity of some other indicators to help keep the setup clean such as:
+# PriceActionUtils for NinjaTrader 8
 
-1. 21 EMA
-2. Price & Spread lines
-3. Remaining tick count and Previous bar's range
-5. Market hour lines
-6. Automatic 2nd chart tick offset (for second chart setup)
-7. Increase chart refresh rate
+PriceActionUtils is a NinjaTrader 8 indicator that combines multiple chart analysis tools into a single indicator. It consolidates functionality from several separate indicators to reduce chart clutter and improve performance.
 
+## Features
 
-### 21 EMA
+The indicator includes the following components:
 
-This one is pretty basic but it saves you from having to add an extra indicator to the chart.
+1. **Automatic 2nd Chart Tick Offset** - Creates offset tick charts for alternative bar formations
+2. **Quick Measure Tool** - Right-click drag measurement functionality
+3. **Enhanced Chart Refresh Rate** - Configurable chart refresh rate improvements
+4. **Market Hour Lines** - Automated time-based reference lines
+5. **Price & Spread Lines** - Current price and bid/ask spread display
+6. **Tick Analytics** - Remaining tick count and previous bar range information
+7. **21 EMA** - Built-in exponential moving average
+
+---
+
+## 2nd Chart Bar Type
+
+The 2nd Chart Tick bar type creates an offset version of standard tick charts. This allows traders to view the same market data with different bar formations, which can help identify additional patterns or setups.
+
+**Implementation:**
+The bar type calculates a 50% offset based on the selected tick period. For example, a 2000-tick chart will have a 1000-tick offset. At the beginning of each session, the first half of the ticks are ignored, creating bars that form differently from the standard chart while maintaining the same tick period.
+
+**Technical Details:**
+- Offset is automatically calculated as 50% of the tick period
+- Tick counting remains consistent with standard tick charts
+- Session-based reset ensures proper offset timing
+- Compatible with existing NinjaTrader tick counter functionality
+
+**Setup:**
+1. Right-click on chart and select Data Series
+2. Select "2nd Chart Tick" from the bar type dropdown
+3. Set the desired tick period
+4. The offset will be applied automatically
+
+![2nd Chart Example](./docs/images/2nd_chart_1.png)
+![2nd Chart Setup](./docs/images/2nd_chart_2.png)
+
+## Quick Measure Tool
+
+The Quick Measure Tool allows measurement between any two points on the chart using a right-click and drag motion. Measurements are displayed in both points and percentage values.
+
+**Usage:**
+- Right-click and drag between two points to measure distance
+- Results show both point difference and percentage change
+- No additional drawing tools required
+- Measurements clear automatically when released
+
+**Configuration:**
+The tool can be enabled or disabled through the indicator settings. Display options include line color, style, and whether to show measurements in points, percentage, or both.
+
+![Quick measure example](./docs/images/quick_measure1.png)
+![Quick measure settings](./docs/images/quick_measure2.png)
+
+## Enhanced Chart Refresh Rate
+
+This feature increases the chart refresh rate beyond NinjaTrader's default setting. The improved refresh rate provides smoother chart updates, particularly during periods of high market activity.
+
+**Configuration:**
+The maximum refresh rate can be adjusted in the indicator settings. Higher refresh rates provide smoother chart performance but may require additional system resources.
+
+![Max refresh rate settings](./docs/images/max_refresh_rate_1.png)
+
+## Market Hour Lines
+
+Market Hour Lines draw vertical lines at specified times to mark important session periods. This feature helps identify regular market open times and other significant time-based reference points.
+
+**Functionality:**
+- Draws lines at configurable times
+- Supports multiple time markers per session
+- Lines can be customized for color and style
+- Automatically adjusts for different time zones
+
+**Configuration:**
+Times are set in the indicator settings panel. Multiple time markers can be configured, with options to enable or disable individual lines as needed.
+
+![Market hours lines](./docs/images/market_hours_lines_1.png)
+![Market hours lines settings](./docs/images/market_hours_lines_2.png)
+
+## Price & Spread Lines
+
+This feature displays horizontal lines showing the current last price and bid/ask spread. The lines update in real-time as market conditions change.
+
+**Display Elements:**
+- Last traded price line
+- Current bid/ask spread visualization
+- Real-time updates with market movement
+- Configurable line appearance
+
+**Settings:**
+Both price and spread lines can be enabled or disabled independently. Line colors, styles, and display options are configurable through the indicator settings.
+
+![Price and Spread lines](./docs/images/price_lines1.png)
+![Price and Spread lines - settings](./docs/images/price_lines2.png)
+
+## Tick Analytics
+
+The Tick Analytics component displays information about the current bar's progress and the previous completed bar's characteristics.
+
+**Information Displayed:**
+- Remaining tick count for the current bar
+- Previous bar's range (high to low)
+- Current bar completion percentage (optional)
+- Display modes: countdown or count-up
+
+**Configuration:**
+The feature can be toggled on or off directly from the chart. Settings include display mode (countdown vs count-up), percentage display options, and text formatting preferences.
+
+![Remaining ticks](./docs/images/remaining_ticks_1.png)
+![Remaining ticks](./docs/images/remaining_ticks_2.png)
+
+## 21 EMA
+
+A standard 21-period exponential moving average is included in the indicator. This eliminates the need to add a separate EMA indicator to the chart.
+
+**Features:**
+- Standard EMA calculation using 21 periods
+- Configurable plot appearance
+- Can be enabled or disabled in settings
+- Minimal performance impact
 
 ![21 EMA](./docs/images/1_21_ema.png)
 
-You can enable/disable this option in the indicator settings
+## Installation
 
+1. Import the indicator files into NinjaTrader 8 through Tools > Import > NinjaScript Add-On
+2. Add to chart by right-clicking chart > Indicators > PriceActionUtils
+3. Configure features through the indicator settings panel
+4. Adjust individual feature settings as needed
 
-![21 EMA enable/disable](./docs/images/1_21_ema_2.png)
+## Requirements
 
-And you can adjust the plot line at the bottom
+- NinjaTrader 8
+- Windows operating system
+- Compatible with all supported market data feeds
 
+## Notes
 
-![21 EMA plot settings](./docs/images/1_21_ema_3.png)
-
-### Price & Spread Lines
-
-Add last price and current spread lines to the chart:
-
-![Price and Spread lines](./docs/images/price_lines1.png)
-
-These lines can be enabled and disabled in the settings
-
-![Price and Spread lines - settings](./docs/images/price_lines2.png)
-
-### Remaining tick count and Previous bar's range
-
-It's helpful to see the number of ticks left in the current bar as well as the size of the previous bar that would be used as the entry bar. This can be disabled directly on the chart next to the current bar
-
-![Remaining ticks](./docs/images/remaining_ticks_1.png)
-
-Settings for this feature include enabling/disabling the feature, showing the ticks as the current tick count or as a countdown and showing the current percentage.
-
-![Remaining ticks](./docs/images/remaining_ticks_2.png)
-
-### Market hour lines
-
-I like to see when the regular market opens and when I should stop looking for trades because it's getting too late in the day. To help with that the indicator can automatically draw lines at configurable times that represent the regular market open time and when you consider it to be 'too late' to be trading.
-
-![Market hours lines](./docs/images/market_hours_lines_1.png)
-
-![Market hours lines settings](./docs/images/market_hours_lines_2.png)
-
-### 2nd Chart bar type
-
-Finally we have a second chart bar type. Some traders like to keep their eye on a 'second chart' which is the same as a normal 2000 tick chart but with an offset applied to the ticks so that we see slightly different bars. This can be useful for seeing additional setups.
-
-This bar type works by dividing the period in 2 and skipping that number of ticks at the start of each session. For example, in a 2000 tick chart the offset will be 1000 ticks so at the start of each session the bar type will ignore the first 1000 ticks therefore creating a difference of 1000 ticks between the two charts.
-
-Here's what that looks like. Notice that the two charts have slightly differnt bars and that the tick count is different by 1000 ticks.
-
-![2nd Chart Example](./docs/images/2nd_chart_1.png)
-
-To set this up you just need to double click on the data series and select the "2nd Chart Tick" bar type. This bar type will also work fine with the built in tick counter.
-
-![2nd Chart Setup](./docs/images/2nd_chart_2.png)
-
-### Increase chart refresh rate
-
-The default refresh rate in NinjaTrader can be a little slow so the indicator allows you to increase that which gives a much more fluid experience. You can configure the maximum refresh rate in the indicator settings.
-
-![Max refresh rate settings](./docs/images/max_refresh_rate_1.png)
+Each feature can be enabled or disabled independently through the indicator settings. The indicator is designed to minimize performance impact while providing multiple chart analysis tools in a single package.
