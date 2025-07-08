@@ -2,6 +2,10 @@
 
 PriceActionUtils is a NinjaTrader 8 indicator that combines multiple chart analysis tools into a single indicator. It consolidates functionality from several separate indicators to reduce chart clutter and improve performance.
 
+## WARNING
+
+USE AT YOUR OWN RISK. This plugin has not been tested by third parties and is provided without warranty. Please test thoroughly with simulation accounts before using with live accounts. The author is not responsible for any issues, losses, or damages that may occur from using this plugin.
+
 ## Features
 
 The indicator includes the following components:
