@@ -20,9 +20,9 @@ The indicator includes the following components:
 
 ---
 
-## 2nd Chart Bar Type
+## "2nd Chart" Bar Type
 
-The 2nd Chart Tick bar type creates an offset version of standard tick charts. This allows traders to view the same market data with different bar formations, which can help identify additional patterns or setups.
+The "2nd Chart" Tick bar type creates an offset version of standard tick charts. This allows traders to view the same market data with different bar formations, which can help identify additional patterns or setups.
 
 **Implementation:**
 The bar type calculates a 50% offset based on the selected tick period. For example, a 2000-tick chart will have a 1000-tick offset. At the beginning of each session, the first half of the ticks are ignored, creating bars that form differently from the standard chart while maintaining the same tick period.
@@ -99,7 +99,7 @@ Both price and spread lines can be enabled or disabled independently. Line color
 ![Price and Spread lines](./docs/images/price_lines1.png)
 ![Price and Spread lines - settings](./docs/images/price_lines2.png)
 
-## Tick Analytics
+## Remaining Tick Counter & Last Bar Size
 
 The Tick Analytics component displays information about the current bar's progress and the previous completed bar's characteristics.
 
@@ -133,12 +133,6 @@ A standard 21-period exponential moving average is included in the indicator. Th
 2. Add to chart by right-clicking chart > Indicators > PriceActionUtils
 3. Configure features through the indicator settings panel
 4. Adjust individual feature settings as needed
-
-## Requirements
-
-- NinjaTrader 8
-- Windows operating system
-- Compatible with all supported market data feeds
 
 ## Notes
 
