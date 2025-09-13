@@ -11,12 +11,13 @@ USE AT YOUR OWN RISK. This plugin has not been tested by third parties and is pr
 The indicator includes the following components:
 
 1. **Automatic 2nd Chart Tick Offset** - Creates offset tick charts for alternative bar formations
-2. **Quick Measure Tool** - Right-click drag measurement functionality
-3. **Enhanced Chart Refresh Rate** - Configurable chart refresh rate improvements
-4. **Market Hour Lines** - Automated time-based reference lines
-5. **Price & Spread Lines** - Current price and bid/ask spread display
-6. **Tick Analytics** - Remaining tick count and previous bar range information
-7. **21 EMA** - Built-in exponential moving average
+2. **News Guard** - See upcomming economic news events on your chart
+3. **Quick Measure Tool** - Right-click drag measurement functionality
+4. **Enhanced Chart Refresh Rate** - Configurable chart refresh rate improvements
+5. **Market Hour Lines** - Automated time-based reference lines
+6. **Price & Spread Lines** - Current price and bid/ask spread display
+7. **Tick Analytics** - Remaining tick count and previous bar range information
+8. **21 EMA** - Built-in exponential moving average
 
 ---
 
@@ -41,6 +42,24 @@ The bar type calculates a 50% offset based on the selected tick period. For exam
 
 ![2nd Chart Example](./docs/images/2nd_chart_1.png)
 ![2nd Chart Setup](./docs/images/2nd_chart_2.png)
+
+## News Guard
+
+The News Guard feature retrieves upcoming economic news events from www.forexfactory.com and displays them directly on your chart, ensuring you never miss high-impact market-moving events.
+
+The News Guard monitors economic calendar data and displays upcoming events as visual markers on your chart. A countdown timer provides precise timing information, allowing you to prepare for or avoid trading during high-impact news releases. The feature automatically highlights the next upcoming event, making it easy to stay aware of market-moving announcements.
+
+**Key Features:**
+- Automatically fetches news events from Forex Factory
+- Visual indicators for upcoming high-impact news events
+- Real-time countdown timer showing exact time until news release
+- Easy identification of the next scheduled event
+- Helps prevent trading during volatile news periods
+
+**Configuration:**
+Settings allow you to customize which impact levels to display, countdown timer appearance, and notification preferences. You can filter events by currency pairs and impact severity to focus on the most relevant news for your trading strategy.
+
+![News Guard](./docs/images/newsguard1.png)
 
 ## Quick Measure Tool
 
