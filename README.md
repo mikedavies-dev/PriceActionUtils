@@ -2,9 +2,23 @@
 
 PriceActionUtils is a NinjaTrader 8 indicator that combines multiple chart analysis tools into a single indicator. It consolidates functionality from several separate indicators to reduce chart clutter and improve performance.
 
-## WARNING
+## Download
+Download the latest version of the indicator from the releases page. Make sure that you download the `PriceActionUtils_{version}.zip` file and not the source code so that NinjaTrader can read the file.
 
-USE AT YOUR OWN RISK. This plugin has not been tested by third parties and is provided without warranty. Please test thoroughly with simulation accounts before using with live accounts. The author is not responsible for any issues, losses, or damages that may occur from using this plugin.
+https://github.com/mikedavies-dev/PriceActionUtils/releases
+
+## Installation
+
+1. Import the indicator files into NinjaTrader 8 through Tools > Import > NinjaScript Add-On
+2. Add to chart by right-clicking chart > Indicators > PriceActionUtils
+3. Configure features through the indicator settings panel
+4. Adjust individual feature settings as needed
+
+## Warning!
+
+USE AT YOUR OWN RISK. I use this indicator daily myself but it has not been tested by third parties and is provided without warranty. Please test thoroughly with simulation accounts before using with live accounts.
+
+The author is not responsible for any issues, losses, or damages that may occur from using this indicator.
 
 ## Features
 
@@ -18,6 +32,10 @@ The indicator includes the following components:
 6. **Price & Spread Lines** - Current price and bid/ask spread display
 7. **Tick Analytics** - Remaining tick count and previous bar range information
 8. **21 EMA** - Built-in exponential moving average
+
+## Notes
+
+Each feature can be enabled or disabled independently through the indicator settings. The indicator is designed to minimize performance impact while providing multiple chart analysis tools in a single package.
 
 ---
 
@@ -146,13 +164,3 @@ A standard 21-period exponential moving average is included in the indicator. Th
 
 ![21 EMA](./docs/images/1_21_ema.png)
 
-## Installation
-
-1. Import the indicator files into NinjaTrader 8 through Tools > Import > NinjaScript Add-On
-2. Add to chart by right-clicking chart > Indicators > PriceActionUtils
-3. Configure features through the indicator settings panel
-4. Adjust individual feature settings as needed
-
-## Notes
-
-Each feature can be enabled or disabled independently through the indicator settings. The indicator is designed to minimize performance impact while providing multiple chart analysis tools in a single package.
